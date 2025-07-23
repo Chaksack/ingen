@@ -1,0 +1,2 @@
+import{ssrRenderAttrs as e,ssrRenderSlot as t}from"vue/server-renderer";import{useSSRContext as o}from"vue";import{_ as r}from"./_plugin-vue_export-helper-1tPrXgE0.mjs";const s={};const n=s.setup;s.setup=(e,t)=>{const r=o();return(r.modules||(r.modules=new Set)).add("node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseTd.vue"),n?n(e,t):void 0};const u=r(s,[["ssrRender",function(o,r,s,n){r(`<td${e(n)}>`),t(o.$slots,"default",{},null,r,s),r("</td>")}]]);export{u as default};
+//# sourceMappingURL=ProseTd-DvrjQWqe.mjs.map

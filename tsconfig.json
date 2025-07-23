@@ -1,0 +1,34 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "types": [
+      "@nuxt/schema",
+      "@nuxtjs/color-mode",
+      "@nuxt/content",
+      "@nuxt/image"
+    ]
+  },
+  "include": [
+    ".nuxt/nuxt.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
