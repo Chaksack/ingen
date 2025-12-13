@@ -100,9 +100,51 @@
   <div class="offcanvas-overlay"></div>
   <!-- side toggle end -->
 
-  <!-- Header area start -->
-  <header></header>
+<!-- Header area start -->
+  <header class="header-area">
+    <div class="header-main">
+      <div class="container large">
+        <div class="header-area__inner">
+          <div class="header__logo">
+            <a href="index.html">
+                <img src="assets/imgs/logo/logo-light.png" class="normal-logo" alt="Site Logo">
+            </a>
+          </div>
+          <div class="header__nav">
+            <nav class="main-menu">
+              <ul>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <!-- <li><a href="blog.html">Blog</a></li> -->
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li>
+                  <a href="faq.html">FAQ</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header__button">
+            <a href="contact.html" class="rr-btn hover-bg-theme">
+              <span class="btn-wrap">
+                <span class="text-one">Let’s Talk</span>
+                <span class="text-two">Let’s Talk</span>
+              </span>
+            </a>
+          </div>
+          <div class="header__navicon d-xl-none">
+            <button class="side-toggle">
+              <i class="fa-solid fa-bars"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <!-- Header area end -->
+
 
   <div class="has-smooth" id="has_smooth"></div>
   <div id="smooth-wrapper">
@@ -140,12 +182,91 @@
 
       </main>
 
-      <!-- footer area start  -->
-      <footer></footer>
+         <!-- footer area start  -->
+     <footer class="footer-area">
+        <div class="container large">
+          <div class="footer-top-inner">
+            <div class="footer-logo">
+              <a href="index.html"><img src="assets/imgs/logo/logo-2-light.png" alt="site-logo"></a>
+            </div>
+            <div class="info-text">
+              <div class="text-wrapper">
+                <p class="text">Ingen is a startup digital agency of design, development and marketing that works
+                  friendly with global client</p>
+              </div>
+              <div class="info-link">
+                <a href="mailto:info@ingencloudtechnologies.com">info@ingencloudtechnologies.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-widget-wrapper-box">
+            <div class="footer-widget-wrapper">
+              <div class="footer-widget-box newsletter">
+                <form action="#" class="subscribe-form">
+                  <div class="input-field">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="subscribe-btn"><img src="assets/imgs/icon/icon-1.webp"
+                        alt="image"></button>
+                  </div>
+                </form>
+                <div class="subscription-text">
+                  <div class="text-wrapper">
+                    <p class="text">By subscribing you agree with our
+                      <a href="contact.html">Privacy Policy</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-widget-box">
+                <h2 class="title">Company</h2>
+                <ul class="footer-nav-list">
+                  <li><a href="contact.html">agency</a></li>
+                  <li><a href="contact.html">Solutions</a></li>
+                  <li><a href="contact.html">Work</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="footer-widget-box">
+                <h2 class="title">Social</h2>
+                <ul class="footer-nav-list">
+                  <li><a href="contact.html">Linkedin</a></li>
+                  <li><a href="contact.html">Instagram</a></li>
+                  <li><a href="contact.html">YouTube</a></li>
+                </ul>
+              </div>
+              <div class="footer-widget-box">
+                <h2 class="title">Office</h2>
+                <ul class="footer-nav-list">
+                  <li><a href="contact.html">London</a></li>
+                  <li><a href="contact.html">Accra</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright-area">
+          <div class="copyright-area-inner">
+            <div class="copyright-text">
+          <p class="text">
+  © <span id="year"></span>
+  <a href="https://ingencloudtechnologies.com">INGEN CLOUD TECHNOLOGIES.</a>
+  All rights reserved
+</p>
+
+
+
+            </div>
+          </div>
+        </div>
+      </footer>
       <!-- footer area end  -->
 
     </div>
   </div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery-3.7.1.min.js"></script>
