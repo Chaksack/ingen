@@ -116,9 +116,10 @@
       bottom: -100%;
       left: 0;
       right: 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
       padding: 25px 20px;
-      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+      border-top: 3px solid #FF6A3A;
       z-index: 99999;
       border-top: 2px solid rgba(255, 255, 255, 0.1);
       transition: bottom 0.5s ease-in-out;
@@ -163,12 +164,13 @@
       white-space: nowrap;
     }
     .accept-btn {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #FF6A3A;
       color: #fff;
     }
     .accept-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 5px 15px rgba(255, 106, 58, 0.4);
+      background: #ff7d4f;
     }
     .decline-btn {
       background: rgba(255, 255, 255, 0.1);
@@ -177,6 +179,8 @@
     }
     .decline-btn:hover {
       background: rgba(255, 255, 255, 0.15);
+      border-color: #FF6A3A;
+      color: #FF6A3A;
     }
     @media (max-width: 768px) {
       .cookie-consent-content {
