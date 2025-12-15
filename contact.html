@@ -5,12 +5,90 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Redox HTML Template">
-
-  <title>Ingen Cloud Technologies</title>
-
+  
+  <!-- Primary Meta Tags -->
+  <title>Contact Us - Ingen Cloud Technologies | Get In Touch</title>
+  <meta name="title" content="Contact Us - Ingen Cloud Technologies | Get In Touch">
+  <meta name="description" content="Get in touch with Ingen Cloud Technologies. Contact us for web development, cloud solutions, and digital marketing services. Let's start your project today!">
+  <meta name="keywords" content="contact ingen, get quote, request consultation, technology services, cloud solutions contact, web development inquiry">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ingencloudtechnologies.com/contact.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ingencloudtechnologies.com/contact.html">
+  <meta property="og:title" content="Contact Us - Ingen Cloud Technologies">
+  <meta property="og:description" content="Get in touch with us for web development, cloud solutions, and digital marketing services.">
+  <meta property="og:image" content="https://ingencloudtechnologies.com/assets/imgs/logo/logo-light.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://ingencloudtechnologies.com/contact.html">
+  <meta name="twitter:title" content="Contact Us - Ingen Cloud Technologies">
+  <meta name="twitter:description" content="Get in touch with us for technology solutions and digital services.">
+  <meta name="twitter:image" content="https://ingencloudtechnologies.com/assets/imgs/logo/logo-light.png">
+  
   <!-- Fav Icon -->
   <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
+
+  <!-- Structured Data (JSON-LD) for Contact -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://ingencloudtechnologies.com",
+    "name": "Ingen Cloud Technologies",
+    "image": "https://ingencloudtechnologies.com/assets/imgs/logo/logo-light.png",
+    "url": "https://ingencloudtechnologies.com",
+    "telephone": "+1-505-555-0125",
+    "email": "info@ingencloudtechnologies.com",
+    "priceRange": "£5000-£25000+",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3891 Ranchview Dr.",
+      "addressLocality": "Richardson",
+      "addressRegion": "TX",
+      "postalCode": "75080",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.9483,
+      "longitude": -96.7299
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/ingencloudtechnologies",
+      "https://www.instagram.com/ingencloudtechnologies",
+      "https://www.youtube.com/@ingencloudtechnologies"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://ingencloudtechnologies.com/contact.html",
+    "name": "Contact Ingen Cloud Technologies",
+    "description": "Get in touch with Ingen Cloud Technologies for your technology needs"
+  }
+  </script>
 
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
@@ -23,10 +101,108 @@
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- Cookie Consent CSS -->
+  <style>
+    .cookie-consent {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 25px 20px;
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+      z-index: 99999;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+      transition: bottom 0.5s ease-in-out;
+    }
+    .cookie-consent.show {
+      bottom: 0;
+    }
+    .cookie-consent-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .cookie-text h3 {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+    }
+    .cookie-text p {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .cookie-buttons {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .cookie-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .accept-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+    .accept-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    .decline-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .decline-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    @media (max-width: 768px) {
+      .cookie-consent-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+      .cookie-btn {
+        flex: 1;
+      }
+    }
+  </style>
+
 </head>
 
 
 <body class="body-wrapper dark body-digital-agency font-heading-instrumentsans-medium">
+
+  <!-- Cookie Consent Popup -->
+  <div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-consent-content">
+      <div class="cookie-text">
+        <h3>🍪 We use cookies</h3>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="acceptCookies" class="cookie-btn accept-btn">Accept All</button>
+        <button id="declineCookies" class="cookie-btn decline-btn">Decline</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Preloader -->
   <div id="preloader">
@@ -201,7 +377,7 @@
                   </div>
                 </div>
                 <div class="contact-wrap">
-                  <form id="contact__form" method="POST" action="https://html.ravextheme.com/redox/dark/mail.php">
+                  <form id="contact__form" method="POST" action="/mail.php">
                     <div class="contact-formwrap">
                       <div class="contact-formfield">
                         <input type="text" name="name" id="name" placeholder="Name*">
@@ -358,6 +534,117 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Cookie Consent JS -->
+  <script>
+    (function() {
+      const cookieConsent = document.getElementById('cookieConsent');
+      const acceptBtn = document.getElementById('acceptCookies');
+      const declineBtn = document.getElementById('declineCookies');
+      
+      const cookieChoice = localStorage.getItem('cookieConsent');
+      
+      if (!cookieChoice) {
+        setTimeout(() => {
+          cookieConsent.classList.add('show');
+        }, 1000);
+      }
+      
+      acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieConsent.classList.remove('show');
+        console.log('Cookies accepted');
+      });
+      
+      declineBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'declined');
+        cookieConsent.classList.remove('show');
+        console.log('Cookies declined');
+      });
+    })();
+  </script>
+
+  <!-- Contact Form Handler JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact__form');
+      const responseMessage = document.getElementById('response-message');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Clear previous messages
+          responseMessage.innerHTML = '';
+          responseMessage.className = '';
+
+          // Get form data
+          const formData = new FormData(form);
+
+          // Show loading state
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalBtnText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="btn-wrap"><span class="text-one">Sending...</span><span class="text-two">Sending...</span></span>';
+
+          // Send AJAX request
+          fetch('mail.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+
+            // Display response message
+            if (data.success) {
+              responseMessage.innerHTML = '<div style="padding: 15px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; margin-top: 15px;">' + 
+                '<strong>Success!</strong> ' + data.message + '</div>';
+              
+              // Reset form
+              form.reset();
+
+              // Scroll to message
+              responseMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+              let errorMsg = '<div style="padding: 15px; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin-top: 15px;">' +
+                '<strong>Error!</strong> ' + data.message;
+              
+              if (data.errors && data.errors.length > 0) {
+                errorMsg += '<ul style="margin: 10px 0 0 0; padding-left: 20px;">';
+                data.errors.forEach(function(error) {
+                  errorMsg += '<li>' + error + '</li>';
+                });
+                errorMsg += '</ul>';
+              }
+              
+              errorMsg += '</div>';
+              responseMessage.innerHTML = errorMsg;
+
+              // Scroll to message
+              responseMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          })
+          .catch(error => {
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+
+            // Display error message
+            responseMessage.innerHTML = '<div style="padding: 15px; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin-top: 15px;">' +
+              '<strong>Error!</strong> There was a problem sending your message. Please try again or contact us directly at <a href="mailto:info@ingencloudtechnologies.com" style="color: #721c24; text-decoration: underline;">info@ingencloudtechnologies.com</a></div>';
+
+            console.error('Form submission error:', error);
+
+            // Scroll to message
+            responseMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+        });
+      }
+    });
+  </script>
 
 </body>
 

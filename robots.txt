@@ -1,0 +1,43 @@
+# Robots.txt for Ingen Cloud Technologies
+# https://ingencloudtechnologies.com/robots.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths
+Disallow: /mail.php
+Disallow: /assets/vendor/
+Disallow: /*.php$
+
+# Sitemap location
+Sitemap: https://ingencloudtechnologies.com/sitemap.xml
+
+# Crawl-delay for all bots (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/imgs/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
