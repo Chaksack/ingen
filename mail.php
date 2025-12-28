@@ -16,13 +16,26 @@ header('Content-Type: application/json');
 // Configuration
 $config = [
     'resend_api_key' => getenv('RESEND_API_KEY') ?: $_ENV['RESEND_API_KEY'] ?? '',
-    'from_email' => 'noreply@ingencloudtechnologies.com', // Replace with your verified domain email
+    'recipient_email' => 'info@ingencloudtechnologies.com',
+    'recipient_name' => 'Ingen Cloud Technologies',
+    'from_email' => 'noreply@ingencloudtechnologies.com',
     'from_name' => 'Ingen Cloud Technologies',
     'subject_prefix' => 'New Contact Form Submission',
     'success_message' => 'Thank you for your message! We will get back to you soon.',
     'error_message' => 'Sorry, there was an error sending your message. Please try again or email us directly.',
     'allowed_domains' => ['ingencloudtechnologies.com'], 
 ];
+
+// Validate that Resend API key is configured
+if (empty($config['resend_api_key'])) {
+    error_log('CRITICAL: RESEND_API_KEY environment variable is not set');
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Email service is not configured. Please contact the administrator.'
+    ]);
+    exit;
+}
 
 // CORS headers (adjust based on your domain)
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
