@@ -1,7 +1,7 @@
 <?php
 /**
  * Contact Form Handler for Ingen Cloud Technologies
- * This file processes contact form submissions and sends emails
+ * This file processes contact form submissions and sends emails using Resend
  */
 
 // Enable error reporting for debugging (disable in production)
@@ -15,12 +15,13 @@ header('Content-Type: application/json');
 
 // Configuration
 $config = [
-    'recipient_email' => 'info@ingencloudtechnologies.com',
-    'recipient_name' => 'Ingen Cloud Technologies',
+    'resend_api_key' => getenv('RESEND_API_KEY') ?: $_ENV['RESEND_API_KEY'] ?? '',
+    'from_email' => 'noreply@ingencloudtechnologies.com', // Replace with your verified domain email
+    'from_name' => 'Ingen Cloud Technologies',
     'subject_prefix' => 'New Contact Form Submission',
     'success_message' => 'Thank you for your message! We will get back to you soon.',
     'error_message' => 'Sorry, there was an error sending your message. Please try again or email us directly.',
-    'allowed_domains' => ['ingencloudtechnologies.com'], // Add your domain for CORS
+    'allowed_domains' => ['ingencloudtechnologies.com'], 
 ];
 
 // CORS headers (adjust based on your domain)
@@ -67,6 +68,50 @@ function validate_phone($phone) {
     // Remove all non-numeric characters for validation
     $clean_phone = preg_replace('/[^0-9]/', '', $phone);
     return strlen($clean_phone) >= 10 && strlen($clean_phone) <= 15;
+}
+
+// Function to send email via Resend API
+function send_email_resend($api_key, $from_email, $from_name, $to_email, $to_name, $reply_to, $subject, $html_body) {
+    $ch = curl_init();
+    
+    $data = [
+        'from' => $from_name . ' <' . $from_email . '>',
+        'to' => [$to_name . ' <' . $to_email . '>'],
+        'subject' => $subject,
+        'html' => $html_body
+    ];
+    
+    if (!empty($reply_to)) {
+        $data['reply_to'] = [$reply_to];
+    }
+    
+    curl_setopt_array($ch, [
+        CURLOPT_URL => 'https://api.resend.com/emails',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => json_encode($data),
+        CURLOPT_HTTPHEADER => [
+            'Authorization: Bearer ' . $api_key,
+            'Content-Type: application/json'
+        ]
+    ]);
+    
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+    
+    if ($error) {
+        error_log('Resend cURL Error: ' . $error);
+        return false;
+    }
+    
+    if ($http_code >= 200 && $http_code < 300) {
+        return json_decode($response, true);
+    } else {
+        error_log('Resend API Error: HTTP ' . $http_code . ' - ' . $response);
+        return false;
+    }
 }
 
 // Initialize response
@@ -251,43 +296,16 @@ try {
     </html>
     ";
 
-    // Plain text version (fallback)
-    $email_body_plain = "
-New Contact Form Submission - Ingen Cloud Technologies
-
-Name: $name
-Email: $email
-Phone: $phone
-Company: " . (empty($company) ? 'Not provided' : $company) . "
-Budget: $budget_text
-Service: $solution
-
-Message:
-$message
-
----
-This email was sent from the contact form on ingencloudtechnologies.com
-Submission Time: " . date('Y-m-d H:i:s') . "
-    ";
-
-    // Email headers
-    $headers = [];
-    $headers[] = 'MIME-Version: 1.0';
-    $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    $headers[] = 'From: ' . $config['recipient_name'] . ' <' . $config['recipient_email'] . '>';
-    $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
-    $headers[] = 'X-Mailer: PHP/' . phpversion();
-    $headers[] = 'X-Priority: 1'; // High priority
-    
-    // Anti-spam headers
-    $headers[] = 'X-Spam-Status: No';
-
-    // Send email
-    $mail_sent = mail(
+    // Send email via Resend
+    $mail_sent = send_email_resend(
+        $config['resend_api_key'],
+        $config['from_email'],
+        $config['from_name'],
         $config['recipient_email'],
+        $config['recipient_name'],
+        $name . ' <' . $email . '>',
         $email_subject,
-        $email_body,
-        implode("\r\n", $headers)
+        $email_body
     );
 
     if ($mail_sent) {
@@ -363,18 +381,16 @@ Submission Time: " . date('Y-m-d H:i:s') . "
         </html>
         ";
         
-        $auto_reply_headers = [];
-        $auto_reply_headers[] = 'MIME-Version: 1.0';
-        $auto_reply_headers[] = 'Content-Type: text/html; charset=UTF-8';
-        $auto_reply_headers[] = 'From: ' . $config['recipient_name'] . ' <' . $config['recipient_email'] . '>';
-        $auto_reply_headers[] = 'X-Mailer: PHP/' . phpversion();
-        
-        // Send auto-reply (don't fail if this doesn't work)
-        @mail(
+        // Send auto-reply via Resend (don't fail if this doesn't work)
+        send_email_resend(
+            $config['resend_api_key'],
+            $config['from_email'],
+            $config['from_name'],
             $email,
+            $name,
+            '',
             $auto_reply_subject,
-            $auto_reply_body,
-            implode("\r\n", $auto_reply_headers)
+            $auto_reply_body
         );
 
         // Success response
