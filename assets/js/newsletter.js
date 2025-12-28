@@ -43,9 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('email', email);
             
             // Send AJAX request
-            fetch('newsletter.php', {
+            fetch('/api/newsletter', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
             })
             .then(response => response.json())
             .then(data => {

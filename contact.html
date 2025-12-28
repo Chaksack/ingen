@@ -590,9 +590,20 @@
           submitBtn.innerHTML = '<span class="btn-wrap"><span class="text-one">Sending...</span><span class="text-two">Sending...</span></span>';
 
           // Send AJAX request
-          fetch('mail.php', {
+          fetch('/api/contact', {
             method: 'POST',
-            body: formData
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: formData.get('name'),
+              email: formData.get('email'),
+              phone: formData.get('phone'),
+              company: formData.get('company'),
+              Budget: formData.get('Budget'),
+              solution: formData.get('solution'),
+              message: formData.get('message')
+            })
           })
           .then(response => response.json())
           .then(data => {
